@@ -1,24 +1,29 @@
-# Quasar App (quasar-todo)
+# Список дел
 
-A Quasar Project
+## <a href="https://quasar-todo-jade.vercel.app/">Ссылка</a>
 
-## Install the dependencies
-```bash
-yarn
-# or
-npm install
-```
+## Описание
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
-```bash
-quasar dev
-```
+Тренировочный проект - Список дел
 
+## Функционал
 
-### Build the app for production
-```bash
-quasar build
-```
+- Переход по страницам без перезагрузки
+- Добавить задачу
+- Удалить задачу
+- Пометить как выполненную
+- Сохранение задач после перезагрузки
+- Адаптивный дизайн
 
-### Customize the configuration
-See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js).
+## Стек технологий
+
+- Vue3
+- Vue-router
+- Quasar Framework
+- Компоненты Quasar
+- localStorage
+
+## Запуск quasar dev
+## Сборка проекта quasar build
+
+## <a href="https://quasar-todo-jade.vercel.app/">Ссылка</a>
