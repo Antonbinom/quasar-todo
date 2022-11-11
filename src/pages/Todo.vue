@@ -21,7 +21,7 @@
         v-ripple
         v-for="(task, index) in tasks"
         :key="task.title"
-        @click="task.done = !task.done"
+        @click="taskDone(index)"
         clickable
         :class="{ 'done bg-blue-1': task.done }"
       >
@@ -51,8 +51,6 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
-
 export default {
   data() {
     return {
@@ -60,8 +58,11 @@ export default {
       tasks: [],
     };
   },
-
   methods: {
+    taskDone(index) {
+      this.tasks[index].done = !this.tasks[index].done;
+      localStorage.setItem("tasks", JSON.stringify(this.tasks));
+    },
     deleteTask(index) {
       this.$q
         .dialog({
@@ -72,6 +73,7 @@ export default {
         })
         .onOk(() => {
           this.tasks.splice(index, 1);
+          localStorage.setItem("tasks", JSON.stringify(this.tasks));
           this.$q.notify("Задание удалено!");
         });
     },
@@ -82,7 +84,11 @@ export default {
           done: false,
         });
       this.newTask = "";
+      localStorage.setItem("tasks", JSON.stringify(this.tasks));
     },
+  },
+  created() {
+    this.tasks = JSON.parse(localStorage.getItem("tasks"));
   },
 };
 </script>

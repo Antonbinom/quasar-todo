@@ -54,10 +54,14 @@
       >
         <div class="absolute-bottom bg-transparent">
           <q-avatar size="56px" class="q-mb-sm">
-            <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
+            <img src="https://avatars.githubusercontent.com/u/86820380?v=4" />
           </q-avatar>
           <div class="text-weight-bold">Anton Semenikhin</div>
-          <div>@antonbinom</div>
+          <div>
+            <a target="_blank" href="https://github.com/Antonbinom"
+              >@antonbinom</a
+            >
+          </div>
         </div>
       </q-img>
     </q-drawer>
@@ -108,5 +112,9 @@ export default defineComponent({
   z-index: -1;
   opacity: 0.2;
   filter: grayscale(100%);
+}
+a {
+  text-decoration: none;
+  color: inherit;
 }
 </style>
