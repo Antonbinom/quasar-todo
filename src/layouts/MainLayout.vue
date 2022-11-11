@@ -18,20 +18,56 @@
       <q-img src="../statics/mountains.jpg" class="header-image absolute-top" />
     </q-header>
 
-    <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
-      <q-list>
-        <q-item-label header> Essential Links </q-item-label>
+    <q-drawer
+      v-model="leftDrawerOpen"
+      show-if-above
+      :width="250"
+      :breakpoint="600"
+    >
+      <q-scroll-area
+        style="
+          height: calc(100% - 192px);
+          margin-top: 192px;
+          border-right: 1px solid #ddd;
+        "
+      >
+        <q-list padding>
+          <q-item clickable v-ripple to="/" exact>
+            <q-item-section avatar>
+              <q-icon name="list" />
+            </q-item-section>
+            <q-item-section> Задачи </q-item-section>
+          </q-item>
+          <q-item clickable v-ripple to="/help" exact>
+            <q-item-section avatar>
+              <q-icon name="help" />
+            </q-item-section>
+            <q-item-section>Справка</q-item-section>
+          </q-item>
+        </q-list>
+      </q-scroll-area>
 
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
+      <q-img
+        class="absolute-top"
+        src="../statics/mountains.jpg"
+        style="height: 192px"
+      >
+        <div class="absolute-bottom bg-transparent">
+          <q-avatar size="56px" class="q-mb-sm">
+            <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
+          </q-avatar>
+          <div class="text-weight-bold">Anton Semenikhin</div>
+          <div>@antonbinom</div>
+        </div>
+      </q-img>
     </q-drawer>
 
     <q-page-container>
-      <router-view />
+      <router-view v-slot="{ Component }">
+        <keep-alive>
+          <component :is="Component" />
+        </keep-alive>
+      </router-view>
     </q-page-container>
   </q-layout>
 </template>
@@ -39,11 +75,12 @@
 <script>
 import { defineComponent, ref } from "vue";
 import { date } from "quasar";
+import Todo from "../pages/Todo.vue";
 
 export default defineComponent({
   name: "MainLayout",
 
-  components: {},
+  components: { Todo },
   computed: {
     todaysDate() {
       const timeStamp = Date.now();
