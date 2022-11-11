@@ -43,7 +43,7 @@
         </q-item-section>
       </q-item>
     </q-list>
-    <div v-if="!tasks.length" class="no-tasks absolute-center">
+    <div v-if="tasks.length === 0" class="no-tasks absolute-center">
       <q-icon name="check" size="100px" color="primary" />
       <div class="text-h5 text-primary text-center">Нет заданий</div>
     </div>
@@ -88,7 +88,9 @@ export default {
     },
   },
   created() {
-    this.tasks = JSON.parse(localStorage.getItem("tasks"));
+    if (JSON.parse(localStorage.getItem("tasks"))) {
+      this.tasks = JSON.parse(localStorage.getItem("tasks"));
+    }
   },
 };
 </script>
