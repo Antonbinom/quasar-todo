@@ -38,11 +38,11 @@
             </q-item-section>
             <q-item-section> Задачи </q-item-section>
           </q-item>
-          <q-item clickable v-ripple to="/help" exact>
+          <q-item clickable v-ripple to="/about" exact>
             <q-item-section avatar>
-              <q-icon name="help" />
+              <q-icon name="about" />
             </q-item-section>
-            <q-item-section>Справка</q-item-section>
+            <q-item-section>О приложении</q-item-section>
           </q-item>
         </q-list>
       </q-scroll-area>
